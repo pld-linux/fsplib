@@ -1,32 +1,37 @@
 Summary:	fsp library
-Summary(pl):	biblioteka fsp
+Summary(pl):	Biblioteka fsp
 Name:		fsplib
 Version:	0.6
 Release:	1
-License:	see COPYING
+License:	BSD-like (see COPYING)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fsp/%{name}-%{version}.tar.gz
 # Source0-md5:	18f837120b5a185840dd16555728dc30
 URL:		http://fsp.sourceforge.net/fsplib.html
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is C library which support talking with FSP server using FSP v2 protocol
-and provides posix-like file manipulation interface.
+This is C library which support talking with FSP server using FSP v2
+protocol and provides POSIX-like file manipulation interface.
 
-For more information about FSP protocol see http://fsp.sourceforge.net/
-For library and API info see http://fsp.sourceforge.net/fsplib.html
+For more information about FSP protocol see
+http://fsp.sourceforge.net/ .
+
+For library and API info see http://fsp.sourceforge.net/fsplib.html .
 
 %description -l pl
-To jest biblioteka napisana w C, która obs³uguje "rozmowê" z serwerem FSP
-u¿ywaj±c wersji 2 protoko³u i dostarcza zgodnego z POSIX interfejsu.
+To jest biblioteka napisana w C, która obs³uguje "rozmowê" z serwerem
+FSP przy u¿yciu wersji 2 protoko³u i dostarcza interfejsu operacji na
+plikach podobnego do POSIX.
 
-Wiêcej informacji o protokole FSP znajdziesz na http://fsp.sourceforge.net/.
+Wiêcej informacji o protokole FSP mo¿na znale¼æ na
+http://fsp.sourceforge.net/ .
+
 Informacje o bibliotece i API znajduj± siê na
-http://fsp.sourceforge.net/fsplib.html.
+http://fsp.sourceforge.net/fsplib.html .
 
 %package devel
 Summary:	Header files for FSP library
