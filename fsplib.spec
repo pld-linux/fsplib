@@ -8,6 +8,9 @@ Group:		Libraries
 Source0:	http://dl.sourceforge.net/fsp/%{name}-%{version}.tar.gz
 # Source0-md5:	18f837120b5a185840dd16555728dc30
 URL:		http://fsp.sourceforge.net/fsplib.html
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
