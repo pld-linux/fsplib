@@ -18,7 +18,7 @@ This is C library which support talking with FSP server using FSP v2
 protocol and provides POSIX-like file manipulation interface.
 
 For more information about FSP protocol see
-http://fsp.sourceforge.net/ .
+<http://fsp.sourceforge.net/>.
 
 For library and API info see http://fsp.sourceforge.net/fsplib.html .
 
@@ -28,7 +28,7 @@ FSP przy u¿yciu wersji 2 protoko³u i dostarcza interfejsu operacji na
 plikach podobnego do POSIX.
 
 Wiêcej informacji o protokole FSP mo¿na znale¼æ na
-http://fsp.sourceforge.net/ .
+<http://fsp.sourceforge.net/>.
 
 Informacje o bibliotece i API znajduj± siê na
 http://fsp.sourceforge.net/fsplib.html .
