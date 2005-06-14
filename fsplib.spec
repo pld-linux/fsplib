@@ -1,3 +1,4 @@
+%bcond_without	static_libs	# don't build static library
 Summary:	fsp library
 Summary(pl):	Biblioteka fsp
 Name:		fsplib
@@ -66,7 +67,8 @@ autoreconf -i
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-shared
+	--enable-shared \
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -92,6 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
