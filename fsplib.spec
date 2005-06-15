@@ -1,4 +1,6 @@
+# Conditional build:
 %bcond_without	static_libs	# don't build static library
+#
 Summary:	fsp library
 Summary(pl):	Biblioteka fsp
 Name:		fsplib
