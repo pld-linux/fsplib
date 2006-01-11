@@ -5,12 +5,12 @@
 Summary:	fsp library
 Summary(pl):	Biblioteka fsp
 Name:		fsplib
-Version:	0.6
+Version:	0.7
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fsp/%{name}-%{version}.tar.gz
-# Source0-md5:	18f837120b5a185840dd16555728dc30
+# Source0-md5:	b61e7f63433a7b2ceae09caf1a4b644d
 URL:		http://fsp.sourceforge.net/fsplib.html
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
