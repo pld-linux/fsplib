@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	fsp library
-Summary(pl):	Biblioteka fsp
+Summary(pl.UTF-8):   Biblioteka fsp
 Name:		fsplib
 Version:	0.8
 Release:	1
@@ -26,39 +26,39 @@ For more information about FSP protocol see
 
 For library and API info see http://fsp.sourceforge.net/fsplib.html .
 
-%description -l pl
-To jest biblioteka napisana w C, która obs³uguje "rozmowê" z serwerem
-FSP przy u¿yciu wersji 2 protoko³u i dostarcza interfejsu operacji na
+%description -l pl.UTF-8
+To jest biblioteka napisana w C, ktÃ³ra obsÅ‚uguje "rozmowÄ™" z serwerem
+FSP przy uÅ¼yciu wersji 2 protokoÅ‚u i dostarcza interfejsu operacji na
 plikach podobnego do POSIX.
 
-Wiêcej informacji o protokole FSP mo¿na znale¼æ na
+WiÄ™cej informacji o protokole FSP moÅ¼na znaleÅºÄ‡ na
 <http://fsp.sourceforge.net/>.
 
-Informacje o bibliotece i API znajduj± siê na
+Informacje o bibliotece i API znajdujÄ… siÄ™ na
 http://fsp.sourceforge.net/fsplib.html .
 
 %package devel
 Summary:	Header files for FSP library
-Summary(pl):	Pliki nag³ówkowe biblioteki FSP
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki FSP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for FSP library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki FSP.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki FSP.
 
 %package static
 Summary:	Static FSP library
-Summary(pl):	Statyczna biblioteka FSP
+Summary(pl.UTF-8):   Statyczna biblioteka FSP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static FSP library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka FSP.
 
 %prep
