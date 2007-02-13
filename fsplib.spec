@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	fsp library
-Summary(pl.UTF-8):   Biblioteka fsp
+Summary(pl.UTF-8):	Biblioteka fsp
 Name:		fsplib
 Version:	0.8
 Release:	1
@@ -39,7 +39,7 @@ http://fsp.sourceforge.net/fsplib.html .
 
 %package devel
 Summary:	Header files for FSP library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki FSP
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki FSP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -51,7 +51,7 @@ Pliki nagłówkowe biblioteki FSP.
 
 %package static
 Summary:	Static FSP library
-Summary(pl.UTF-8):   Statyczna biblioteka FSP
+Summary(pl.UTF-8):	Statyczna biblioteka FSP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
