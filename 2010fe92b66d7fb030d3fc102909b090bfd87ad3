@@ -1,0 +1,1 @@
+- updated to 0.8 (security fix for off-by-one error [CVE-2006-7221])
