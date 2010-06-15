@@ -5,16 +5,15 @@
 Summary:	fsp library
 Summary(pl.UTF-8):	Biblioteka fsp
 Name:		fsplib
-Version:	0.9
+Version:	0.11
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/fsp/%{name}-%{version}.tar.gz
-# Source0-md5:	e6f2e5a9cf9a893625b80ce7255c0d8c
+Source0:	http://downloads.sourceforge.net/fsp/%{name}-%{version}.tar.gz
+# Source0-md5:	f2f4809159d331baada8135d3977563c
+Patch0:		%{name}-scons.patch
 URL:		http://fsp.sourceforge.net/fsplib.html
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	scons
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,7 +23,7 @@ protocol and provides POSIX-like file manipulation interface.
 For more information about FSP protocol see
 <http://fsp.sourceforge.net/>.
 
-For library and API info see http://fsp.sourceforge.net/fsplib.html .
+For library and API info see <http://fsp.sourceforge.net/fsplib.html>.
 
 %description -l pl.UTF-8
 To jest biblioteka napisana w C, która obsługuje "rozmowę" z serwerem
@@ -35,7 +34,7 @@ Więcej informacji o protokole FSP można znaleźć na
 <http://fsp.sourceforge.net/>.
 
 Informacje o bibliotece i API znajdują się na
-http://fsp.sourceforge.net/fsplib.html .
+<http://fsp.sourceforge.net/fsplib.html>.
 
 %package devel
 Summary:	Header files for FSP library
@@ -62,23 +61,24 @@ Static FSP library.
 Statyczna biblioteka FSP.
 
 %prep
-%setup -c -q
+%setup -q -c
+%patch0 -p1
 
 %build
-autoreconf -i
-%{__libtoolize}
-%{__autoconf}
-%{__automake}
-%configure \
-	--enable-shared \
-	%{!?with_static_libs:--disable-static}
-%{__make}
+%scons \
+	CCFLAGS="%{rpmcflags}" \
+	enable-shared=yes
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}}
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+# we know scons is great :/
+install libfsplib.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}
+ln -sf libfsplib.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/libfsplib.so.0
+ln -sf libfsplib.so.0.0.0 $RPM_BUILD_ROOT%{_libdir}/libfsplib.so
+cp -a libfsplib.a $RPM_BUILD_ROOT%{_libdir}
+cp -a fsplib.h $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -89,16 +89,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog COPYING NEWS README TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libfsplib.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libfsplib.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libfsplib.so
+%{_includedir}/fsplib.h
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libfsplib.a
 %endif
