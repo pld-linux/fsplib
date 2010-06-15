@@ -1,0 +1,40 @@
+--- fsplib-0.11/SConstruct.orig	2009-06-13 18:13:00.000000000 +0200
++++ fsplib-0.11/SConstruct	2010-06-15 20:55:48.113833712 +0200
+@@ -11,8 +11,6 @@
+ SHARED=0
+ 
+ env = Environment()
+-# Turn CPPFLAGS to list
+-env.Append( CPPFLAGS = [])
+ 
+ ################### Functions ######################
+ def importEnv(list=None, prefix=None):
+@@ -31,6 +29,20 @@
+ 	       kw={ 'ENV': kw }
+ 	       env.Append(**kw)
+ 
++importEnv(['CPPFLAGS','CCFLAGS'])
++if env['ENV'].get('CPPFLAGS'):
++    env.Append( CPPFLAGS = env['ENV'].get('CPPFLAGS').split() )
++elif ARGUMENTS.get('CPPFLAGS', 0):
++    env.Append( CPPFLAGS = ARGUMENTS.get('CPPFLAGS').split() )
++else:
++    env.Append( CPPFLAGS = [])
++if env['ENV'].get('CFLAGS'):
++    env.Append( CCFLAGS = env['ENV'].get('CFLAGS').split() )
++elif ARGUMENTS.get('CFLAGS', 0):
++    env.Append( CCFLAGS = ARGUMENTS.get('CFLAGS').split() )
++else:
++    env.Append( CCFLAGS = [])
++
+ #import environment
+ importEnv(['HOME','CC'])
+ importEnv(prefix='DISTCC_')
+@@ -91,7 +103,6 @@
+ 			  conf.env.Append(CCFLAGS = '-O0')
+ 			  conf.env.Append(CPPFLAGS = '-DMAINTAINER_MODE')
+     else:
+-			  conf.env.Append(CCFLAGS = '-O')
+ 			  conf.Result(0)
+ 
+ def checkForLockPrefix(conf):
