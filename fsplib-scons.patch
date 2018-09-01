@@ -30,11 +30,3 @@
  #import environment
  importEnv(['HOME','CC'])
  importEnv(prefix='DISTCC_')
-@@ -91,7 +103,6 @@
- 			  conf.env.Append(CCFLAGS = '-O0')
- 			  conf.env.Append(CPPFLAGS = '-DMAINTAINER_MODE')
-     else:
--			  conf.env.Append(CCFLAGS = '-O')
- 			  conf.Result(0)
- 
- def checkForLockPrefix(conf):
