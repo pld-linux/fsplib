@@ -5,15 +5,15 @@
 Summary:	fsp library
 Summary(pl.UTF-8):	Biblioteka fsp
 Name:		fsplib
-Version:	0.12
+Version:	0.14
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/fsp/%{name}-%{version}.tar.gz
-# Source0-md5:	492733480e22d79a5d7c8ecbd71bf07b
+# Source0-md5:	7eec378bb29de161f29b495a96828cba
 Patch0:		%{name}-scons.patch
 URL:		http://fsp.sourceforge.net/fsplib.html
-BuildRequires:	scons
+BuildRequires:	scons >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,7 +61,7 @@ Static FSP library.
 Statyczna biblioteka FSP.
 
 %prep
-%setup -q
+%setup -q -c
 %patch0 -p1
 
 %build
