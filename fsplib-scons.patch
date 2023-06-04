@@ -1,17 +1,18 @@
---- fsplib-0.11/SConstruct.orig	2009-06-13 18:13:00.000000000 +0200
-+++ fsplib-0.11/SConstruct	2010-06-15 20:55:48.113833712 +0200
-@@ -11,8 +11,6 @@
+diff -up fsplib-0.14/SConstruct.orig fsplib-0.14/SConstruct
+--- fsplib-0.14/SConstruct.orig	2019-08-16 08:29:00.000000000 +0200
++++ fsplib-0.14/SConstruct	2023-06-04 13:37:10.122039427 +0200
+@@ -11,8 +11,6 @@ PREFIX='/usr/local'
  SHARED=0
  
  env = Environment()
 -# Turn CPPFLAGS to list
 -env.Append( CPPFLAGS = [])
  
- ################### Functions ######################
- def importEnv(list=None, prefix=None):
-@@ -31,6 +29,20 @@
- 	       kw={ 'ENV': kw }
- 	       env.Append(**kw)
+ ############## Imports #################
+ from maintainer import checkForMaintainerMode
+@@ -40,6 +38,20 @@ def importEnv(list=None, prefix=None):
+                kw={ 'ENV': kw }
+                env.Append(**kw)
  
 +importEnv(['CPPFLAGS','CCFLAGS'])
 +if env['ENV'].get('CPPFLAGS'):

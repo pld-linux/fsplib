@@ -6,7 +6,7 @@ Summary:	fsp library
 Summary(pl.UTF-8):	Biblioteka fsp
 Name:		fsplib
 Version:	0.14
-Release:	1
+Release:	2
 License:	BSD-like (see COPYING)
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/fsp/%{name}-%{version}.tar.gz
