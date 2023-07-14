@@ -6,7 +6,7 @@ Summary:	fsp library
 Summary(pl.UTF-8):	Biblioteka fsp
 Name:		fsplib
 Version:	0.14
-Release:	2
+Release:	3
 License:	BSD-like (see COPYING)
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/fsp/%{name}-%{version}.tar.gz
@@ -66,7 +66,7 @@ Statyczna biblioteka FSP.
 
 %build
 %scons \
-	CCFLAGS="%{rpmcflags}" \
+	CFLAGS="%{rpmcflags} -D_FILE_OFFSET_BITS=64" \
 	enable-shared=yes
 
 %install
