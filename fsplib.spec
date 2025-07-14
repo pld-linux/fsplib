@@ -62,7 +62,7 @@ Statyczna biblioteka FSP.
 
 %prep
 %setup -q -c
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %scons \
